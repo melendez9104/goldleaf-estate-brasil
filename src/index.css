@@ -2,41 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Luxe Properties Brasil - Sistema de Design Premium 
+Paleta de cores: Negro profundo + Dorado metálico brillante
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Colores base - Negro profundo y elegante */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Tarjetas y superficies */
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Dorado metálico como primary */
+    --primary: 45 89% 55%;
+    --primary-foreground: 0 0% 8%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secundario en negro más claro */
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted para elementos sutiles */
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent dorado más sutil */
+    --accent: 45 70% 45%;
+    --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Borders dorados sutiles */
+    --border: 45 30% 25%;
+    --input: 0 0% 12%;
+    --ring: 45 89% 55%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Colores de lujo personalizados */
+    --luxury-gold: 45 89% 55%;
+    --luxury-gold-light: 45 95% 65%;
+    --luxury-gold-dark: 45 70% 45%;
+    --luxury-black: 0 0% 4%;
+    --luxury-black-light: 0 0% 8%;
+    --luxury-black-darker: 0 0% 2%;
+    --luxury-white: 0 0% 98%;
+    --luxury-gray: 0 0% 65%;
+
+    /* Gradientes de lujo */
+    --gradient-gold: linear-gradient(135deg, hsl(45 89% 55%), hsl(45 95% 65%), hsl(45 89% 55%));
+    --gradient-black: linear-gradient(180deg, hsl(0 0% 4%), hsl(0 0% 8%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 2% / 0.9), hsl(0 0% 6% / 0.8));
+
+    /* Sombras premium */
+    --shadow-luxury: 0 25px 50px -12px hsl(0 0% 0% / 0.6);
+    --shadow-gold: 0 10px 30px -10px hsl(45 89% 55% / 0.3);
+    --shadow-card: 0 20px 40px -15px hsl(0 0% 0% / 0.4);
+
+    /* Transiciones suaves */
+    --transition-luxury: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +131,240 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body;
+  }
+}
+
+@layer components {
+  /* Tipografías de lujo */
+  .font-heading {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Efectos de lujo */
+  .luxury-glow {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .luxury-card {
+    background: var(--gradient-black);
+    box-shadow: var(--shadow-card);
+    border: 1px solid hsl(var(--border));
+  }
+
+  .gold-shimmer {
+    background: var(--gradient-gold);
+    background-size: 200% 200%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .hover-lift {
+    transition: var(--transition-luxury);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-luxury);
+  }
+
+  /* Animaciones premium */
+  @keyframes shimmer {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .animate-fade-in-scale {
+    animation: fadeInScale 0.6s ease-out;
+  }
+
+  /* Scroll reveal */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: var(--transition-luxury);
+  }
+
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Button variants de lujo */
+  .luxury-hero-primary {
+    background: var(--gradient-gold);
+    color: hsl(var(--luxury-black));
+    border: none;
+    font-weight: 600;
+    box-shadow: var(--shadow-gold);
+  }
+
+  .luxury-hero-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-luxury);
+    background: hsl(var(--luxury-gold-light));
+  }
+
+  .luxury-hero-secondary {
+    background: transparent;
+    color: hsl(var(--luxury-white));
+    border: 2px solid hsl(var(--luxury-gold) / 0.4);
+    backdrop-filter: blur(10px);
+  }
+
+  .luxury-hero-secondary:hover {
+    background: hsl(var(--luxury-gold) / 0.1);
+    border-color: hsl(var(--luxury-gold));
+    color: hsl(var(--luxury-gold));
+  }
+
+  .luxury-search-button {
+    background: var(--gradient-gold);
+    color: hsl(var(--luxury-black));
+    border: none;
+    font-weight: 600;
+    box-shadow: var(--shadow-gold);
+  }
+
+  .luxury-search-button:hover {
+    background: hsl(var(--luxury-gold-light));
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-luxury);
+  }
+
+  .luxury-property-button {
+    background: transparent;
+    color: hsl(var(--luxury-gold));
+    border: 1px solid hsl(var(--luxury-gold) / 0.4);
+    font-weight: 500;
+  }
+
+  .luxury-property-button:hover {
+    background: hsl(var(--luxury-gold));
+    color: hsl(var(--luxury-black));
+    border-color: hsl(var(--luxury-gold));
+  }
+
+  .luxury-view-all-button {
+    background: transparent;
+    color: hsl(var(--luxury-white));
+    border: 2px solid hsl(var(--luxury-gold) / 0.4);
+  }
+
+  .luxury-view-all-button:hover {
+    background: hsl(var(--luxury-gold));
+    color: hsl(var(--luxury-black));
+    border-color: hsl(var(--luxury-gold));
+  }
+
+  .luxury-icon-button {
+    background: hsl(var(--luxury-black) / 0.8);
+    color: hsl(var(--luxury-gold));
+    border: 1px solid hsl(var(--luxury-gold) / 0.3);
+    backdrop-filter: blur(10px);
+  }
+
+  .luxury-icon-button:hover {
+    background: hsl(var(--luxury-gold));
+    color: hsl(var(--luxury-black));
+  }
+
+  /* Input styles */
+  .luxury-input {
+    background: hsl(var(--luxury-black-light));
+    border: 1px solid hsl(var(--luxury-gold) / 0.3);
+    color: hsl(var(--luxury-white));
+  }
+
+  .luxury-input:focus {
+    border-color: hsl(var(--luxury-gold));
+    box-shadow: 0 0 0 3px hsl(var(--luxury-gold) / 0.2);
+  }
+
+  .luxury-input::placeholder {
+    color: hsl(var(--luxury-gray));
+  }
+
+  /* Select styles */
+  .luxury-select {
+    background: hsl(var(--luxury-black-light));
+    border: 1px solid hsl(var(--luxury-gold) / 0.3);
+    color: hsl(var(--luxury-white));
+  }
+
+  .luxury-select:focus {
+    border-color: hsl(var(--luxury-gold));
+    box-shadow: 0 0 0 3px hsl(var(--luxury-gold) / 0.2);
+  }
+
+  .luxury-dropdown {
+    background: hsl(var(--luxury-black-light));
+    border: 1px solid hsl(var(--luxury-gold) / 0.3);
+    color: hsl(var(--luxury-white));
+  }
+
+  /* Property card styles */
+  .luxury-property-card {
+    background: var(--gradient-black);
+    border: 1px solid hsl(var(--luxury-gold) / 0.2);
+    box-shadow: var(--shadow-card);
+  }
+
+  .luxury-property-card:hover {
+    border-color: hsl(var(--luxury-gold) / 0.4);
+    box-shadow: var(--shadow-luxury);
+  }
+
+  .luxury-featured-badge {
+    background: var(--gradient-gold);
+    color: hsl(var(--luxury-black));
+    font-weight: 600;
+    border: none;
+  }
+
+  .luxury-whatsapp-button {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    border: none;
+    font-weight: 600;
+  }
+
+  .luxury-whatsapp-button:hover {
+    background: linear-gradient(135deg, #128C7E, #25D366);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
   }
 }
