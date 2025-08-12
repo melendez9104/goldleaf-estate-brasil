@@ -69,17 +69,14 @@ export const LuxuryHero = () => {
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
-              filter: 'brightness(0.3)'
+              filter: 'brightness(0.6)'
             }}
           />
         ))}
       </div>
       
-      {/* Gradient Overlay */}
-      <div 
-        className="absolute inset-0"
-        style={{ background: 'var(--gradient-hero)' }}
-      />
+      {/* Subtle Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-luxury-black/20 via-transparent to-luxury-black/40" />
       
       
       {/* Dynamic Content Based on Current Image */}
@@ -91,16 +88,18 @@ export const LuxuryHero = () => {
             </span>
           </div>
           
-          <h1 className={`font-heading text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-luxury-white leading-tight transition-all duration-700 ${
+          <h1 className={`font-heading text-4xl md:text-6xl lg:text-7xl font-semibold mb-6 text-luxury-white leading-tight transition-all duration-700 ${
             isTransitioning ? 'opacity-0 transform translate-y-4' : 'opacity-100 transform translate-y-0'
           }`}>
-            <span className="block">Imóveis de</span>
-            <span className="block text-transparent bg-clip-text gold-shimmer">
+            <span className="block text-luxury-white/90 text-2xl md:text-3xl font-normal mb-2">
+              Imóveis de
+            </span>
+            <span className="block text-transparent bg-clip-text gold-shimmer font-bold">
               Luxo Exclusivos
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-luxury-gray mb-8 max-w-2xl mx-auto font-light">
+          <p className="text-lg md:text-xl text-luxury-white/80 mb-8 max-w-2xl mx-auto font-light">
             Descubra as propriedades mais sofisticadas do Brasil com 
             atendimento premium e consultoria especializada
           </p>
@@ -108,35 +107,35 @@ export const LuxuryHero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button 
               size="lg" 
-              className="luxury-hero-primary px-8 py-6 text-lg font-semibold hover-lift"
+              className="luxury-hero-primary px-6 py-3 text-base font-medium hover-lift"
             >
-              <Search className="mr-2 h-5 w-5" />
+              <Search className="mr-2 h-4 w-4" />
               Explorar Propriedades
             </Button>
             
             <Button 
               variant="outline" 
               size="lg"
-              className="luxury-hero-secondary px-8 py-6 text-lg font-semibold hover-lift"
+              className="luxury-hero-secondary px-6 py-3 text-base font-medium hover-lift"
             >
-              <Award className="mr-2 h-5 w-5" />
+              <Award className="mr-2 h-4 w-4" />
               Consultoria VIP
             </Button>
           </div>
           
           {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-            <div className="text-center animate-fade-in-scale">
-              <div className="text-3xl md:text-4xl font-heading font-bold text-luxury-gold mb-2">500+</div>
-              <div className="text-luxury-gray">Propriedades Premium</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto">
+            <div className="text-center animate-fade-in-scale bg-luxury-black/30 backdrop-blur-sm rounded-lg p-4">
+              <div className="text-2xl md:text-3xl font-heading font-bold text-luxury-gold mb-1">500+</div>
+              <div className="text-luxury-white/70 text-sm">Propriedades Premium</div>
             </div>
-            <div className="text-center animate-fade-in-scale" style={{ animationDelay: '0.2s' }}>
-              <div className="text-3xl md:text-4xl font-heading font-bold text-luxury-gold mb-2">25+</div>
-              <div className="text-luxury-gray">Anos de Experiência</div>
+            <div className="text-center animate-fade-in-scale bg-luxury-black/30 backdrop-blur-sm rounded-lg p-4" style={{ animationDelay: '0.2s' }}>
+              <div className="text-2xl md:text-3xl font-heading font-bold text-luxury-gold mb-1">25+</div>
+              <div className="text-luxury-white/70 text-sm">Anos de Experiência</div>
             </div>
-            <div className="text-center animate-fade-in-scale" style={{ animationDelay: '0.4s' }}>
-              <div className="text-3xl md:text-4xl font-heading font-bold text-luxury-gold mb-2">98%</div>
-              <div className="text-luxury-gray">Satisfação dos Clientes</div>
+            <div className="text-center animate-fade-in-scale bg-luxury-black/30 backdrop-blur-sm rounded-lg p-4" style={{ animationDelay: '0.4s' }}>
+              <div className="text-2xl md:text-3xl font-heading font-bold text-luxury-gold mb-1">98%</div>
+              <div className="text-luxury-white/70 text-sm">Satisfação dos Clientes</div>
             </div>
           </div>
         </div>
@@ -158,11 +157,11 @@ export const LuxuryHero = () => {
       </div>
       
       {/* Property Info Overlay */}
-      <div className="absolute bottom-8 left-8 z-10 luxury-card p-4 max-w-xs opacity-90">
+      <div className="absolute bottom-8 left-8 z-10 bg-luxury-black/40 backdrop-blur-md border border-luxury-gold/20 rounded-xl p-4 max-w-xs">
         <h3 className="font-heading text-lg font-semibold text-luxury-gold mb-1">
           {heroImages[currentImageIndex].title}
         </h3>
-        <p className="text-luxury-gray text-sm">
+        <p className="text-luxury-white/80 text-sm">
           {heroImages[currentImageIndex].subtitle}
         </p>
       </div>
